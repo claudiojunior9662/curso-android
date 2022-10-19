@@ -7,8 +7,17 @@ import curso.android.appminhaideiadb.controller.ICrud;
 
 public class Cliente implements ICrud {
 
+    private int id;
     private String nome;
     private String email;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void setNome(String nome) {
         this.nome = nome;
