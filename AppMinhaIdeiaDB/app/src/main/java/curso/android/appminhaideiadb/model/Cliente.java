@@ -5,7 +5,7 @@ import android.util.Log;
 import curso.android.appminhaideiadb.api.AppUtil;
 import curso.android.appminhaideiadb.controller.ICrud;
 
-public class Cliente implements ICrud {
+public class Cliente {
 
     private int id;
     private String nome;
@@ -33,25 +33,5 @@ public class Cliente implements ICrud {
 
     public String getNome() {
         return nome;
-    }
-
-    @Override
-    public void incluir() {
-        Log.i(AppUtil.TAG, "incluir: ");
-    }
-
-    @Override
-    public void alterar() {
-        Log.i(AppUtil.TAG, "alterar: ");
-    }
-
-    @Override
-    public void deletar() {
-        Log.i(AppUtil.TAG, "deletar: ");
-    }
-
-    @Override
-    public void listar() {
-        Log.i(AppUtil.TAG, "listar: ");
     }
 }
