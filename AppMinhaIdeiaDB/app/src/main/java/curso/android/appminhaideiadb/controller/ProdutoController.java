@@ -23,6 +23,7 @@ public class ProdutoController extends AppDataBase implements ICrud<Produto> {
         contentValues = new ContentValues();
         contentValues.put(ProdutoDataModel.NOME, obj.getNome());
         contentValues.put(ProdutoDataModel.FORNECEDOR, obj.getFornecedor());
+        insert(ProdutoDataModel.TABELA, contentValues);
         return false;
     }
 
@@ -44,7 +45,6 @@ public class ProdutoController extends AppDataBase implements ICrud<Produto> {
 
     @Override
     public List<Produto> listar() {
-        List<Produto> result = new ArrayList<>();
-        return result;
+        return new ArrayList<>();
     }
 }

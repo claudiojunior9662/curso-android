@@ -1,5 +1,6 @@
 package curso.android.appminhaideiadb.datasource;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -9,7 +10,9 @@ import androidx.annotation.Nullable;
 
 import curso.android.appminhaideiadb.api.AppUtil;
 import curso.android.appminhaideiadb.datamodel.ClienteDataModel;
+import curso.android.appminhaideiadb.datamodel.ProdutoDataModel;
 import curso.android.appminhaideiadb.model.Cliente;
+import curso.android.appminhaideiadb.model.Produto;
 
 public class AppDataBase extends SQLiteOpenHelper {
 
@@ -29,10 +32,22 @@ public class AppDataBase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(ClienteDataModel.criarTabela());
         Log.d(AppUtil.TAG, "onCreate: tabela cliente criada..." + ClienteDataModel.criarTabela());
+        db.execSQL(ProdutoDataModel.criarTabela());
+        Log.d(AppUtil.TAG, "onCreate: tabela produto criada..." + ProdutoDataModel.criarTabela());
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+    }
+
+    /**
+     * Método para inserir do banco de dados
+     * @param tabela nome da tabela para ser inserida
+     * @param dados conjunto de dados para serem inseridos
+     * @return true se os dados forem inseridos com sucesso ou false caso ocorra erro
+     */
+    public boolean insert(String tabela, ContentValues dados) {
+        return false;
     }
 }

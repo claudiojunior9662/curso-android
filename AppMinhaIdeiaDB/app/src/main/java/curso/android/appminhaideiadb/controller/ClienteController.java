@@ -27,6 +27,7 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
         contentValues = new ContentValues();
         contentValues.put(ClienteDataModel.NOME, obj.getNome());
         contentValues.put(ClienteDataModel.EMAIL, obj.getEmail());
+        insert(ClienteDataModel.TABELA, contentValues);
         return true;
     }
 
@@ -48,7 +49,6 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
 
     @Override
     public List<Cliente> listar() {
-        List<Cliente> result = new ArrayList<>();
-        return result;
+        return new ArrayList<>();
     }
 }
