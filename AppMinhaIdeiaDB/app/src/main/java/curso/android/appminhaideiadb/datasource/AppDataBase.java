@@ -48,6 +48,14 @@ public class AppDataBase extends SQLiteOpenHelper {
      * @return true se os dados forem inseridos com sucesso ou false caso ocorra erro
      */
     public boolean insert(String tabela, ContentValues dados) {
-        return false;
+        boolean result;
+        db = getWritableDatabase();
+        try{
+            result = db.insert(tabela, null, dados) > 0;
+        }catch (Exception e) {
+            Log.d(AppUtil.TAG, "insert: " + e.getMessage());
+            result = false;
+        }
+        return result;
     }
 }
