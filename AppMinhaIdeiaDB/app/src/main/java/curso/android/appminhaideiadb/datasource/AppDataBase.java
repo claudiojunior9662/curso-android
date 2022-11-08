@@ -58,4 +58,22 @@ public class AppDataBase extends SQLiteOpenHelper {
         }
         return result;
     }
+
+    /**
+     * Método para deletar do banco de dados
+     * @param tabela nome da tabela para ser inserida
+     * @param id chave primária do objeto a ser excluído
+     * @return true se os dados forem inseridos com sucesso ou false caso ocorra erro
+     */
+    public boolean deleteById(String tabela, int id) {
+        boolean result;
+        db = getWritableDatabase();
+        try{
+            result = db.delete(tabela, "id = ?", new String[] {String.valueOf(id)}) > 0;
+        }catch (Exception e) {
+            Log.d(AppUtil.TAG, "delete: " + e.getMessage());
+            result = false;
+        }
+        return result;
+    }
 }
