@@ -11,6 +11,20 @@ public class Cliente {
     private String nome;
     private String email;
 
+    public Cliente() {
+    }
+
+    public Cliente(String nome, String email) {
+        this.nome = nome;
+        this.email = email;
+    }
+
+    public Cliente(int id, String nome, String email) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }
@@ -33,5 +47,14 @@ public class Cliente {
 
     public String getNome() {
         return nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

@@ -2,11 +2,15 @@ package curso.android.appminhaideiadb.datasource;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import curso.android.appminhaideiadb.api.AppUtil;
 import curso.android.appminhaideiadb.datamodel.ClienteDataModel;
@@ -75,5 +79,39 @@ public class AppDataBase extends SQLiteOpenHelper {
             result = false;
         }
         return result;
+    }
+
+    /**
+     * Método para atualizar no banco de dados
+     * @param tabela nome da tabela para ser inserida
+     * @param dados conjunto de dados para serem atualizados
+     * @return true se os dados forem atualizados com sucesso ou false caso ocorra erro
+     */
+    public boolean update(String tabela, ContentValues dados) {
+        boolean result;
+        db = getWritableDatabase();
+        try{
+            result = db.update(tabela, dados, "id = ?", new String[] {String.valueOf(dados.get("id"))}) > 0;
+        }catch (Exception e) {
+            Log.d(AppUtil.TAG, "insert: " + e.getMessage());
+            result = false;
+        }
+        return result;
+    }
+
+    public List<Cliente> getAllClientes(String tabela) {
+        db = getWritableDatabase();
+        List<Cliente> clientes = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + tabela, null);
+        if(cursor.moveToFirst()){
+            do{
+                clientes.add(new Cliente(
+                        cursor.getInt(cursor.getColumnIndexOrThrow(ClienteDataModel.ID)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(ClienteDataModel.NOME)),
+                        cursor.getString(cursor.getColumnIndexOrThrow(ClienteDataModel.EMAIL))
+                ));
+            }while(cursor.moveToNext());
+        }
+        return clientes;
     }
 }

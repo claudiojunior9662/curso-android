@@ -33,7 +33,7 @@ public class ProdutoController extends AppDataBase implements ICrud<Produto> {
         contentValues.put(ProdutoDataModel.ID, obj.getId());
         contentValues.put(ProdutoDataModel.NOME, obj.getNome());
         contentValues.put(ProdutoDataModel.FORNECEDOR, obj.getFornecedor());
-        return false;
+        return update(ProdutoDataModel.TABELA, contentValues);
     }
 
     @Override

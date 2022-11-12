@@ -24,25 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
         clienteController = new ClienteController(getApplicationContext());
 
-        Cliente obj = new Cliente();
-        obj.setId(1);
-        obj.setNome("Claudio Jr.");
-        obj.setEmail("teste@teste.com");
-
-//        if(clienteController.incluir(obj)){
-//            Toast.makeText(MainActivity.this, "Cliente " + obj.getNome() + " incluído com sucesso...", Toast.LENGTH_SHORT).show();
-//            Log.i(AppUtil.TAG, "Cliente " + obj.getNome() + " incluído com sucesso...");
-//        } else {
-//            Toast.makeText(MainActivity.this, "Cliente " + obj.getNome() + " não incluído com sucesso...", Toast.LENGTH_SHORT).show();
-//            Log.i(AppUtil.TAG, "Cliente " + obj.getNome() + " não incluído com sucesso...");
+//        for(int i=0;i<49;i++){
+//            clienteController.incluir(new Cliente("Claudio "+i, i+"_claudio@teste"));
 //        }
 
-        if(clienteController.deletar(obj.getId())){
-            Toast.makeText(MainActivity.this, "Cliente " + obj.getNome() + " excluído com sucesso...", Toast.LENGTH_SHORT).show();
-            Log.i(AppUtil.TAG, "Cliente " + obj.getNome() + " excluído com sucesso...");
-        } else {
-            Toast.makeText(MainActivity.this, "Cliente " + obj.getNome() + " não excluído com sucesso...", Toast.LENGTH_SHORT).show();
-            Log.i(AppUtil.TAG, "Cliente " + obj.getNome() + " não excluído com sucesso...");
+        for(Cliente cliente : clienteController.listar()){
+            Log.i("Listar", "onCreate: " + cliente.toString());
         }
     }
 }
