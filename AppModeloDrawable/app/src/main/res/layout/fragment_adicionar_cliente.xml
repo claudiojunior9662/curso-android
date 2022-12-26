@@ -21,7 +21,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/editTelefoneCliente"
+            android:id="@+id/editNomeCompletoCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -32,13 +32,26 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/editTelefoneCliente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@color/vermelho"
+            android:gravity="left"
+            android:inputType="phone"
+            android:hint="Telefone"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
             android:id="@+id/editEmailCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@color/vermelho"
             android:gravity="left"
-            android:hint="Telefone"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -49,7 +62,8 @@
             android:layout_marginTop="8dp"
             android:background="@color/vermelho"
             android:gravity="left"
-            android:hint="Email"
+            android:hint="Cep"
+            android:inputType="number"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -60,7 +74,7 @@
             android:layout_marginTop="8dp"
             android:background="@color/vermelho"
             android:gravity="left"
-            android:hint="Cep"
+            android:hint="Logradouro"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -71,7 +85,8 @@
             android:layout_marginTop="8dp"
             android:background="@color/vermelho"
             android:gravity="left"
-            android:hint="Logradouro"
+            android:inputType="number"
+            android:hint="Número"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -82,7 +97,7 @@
             android:layout_marginTop="8dp"
             android:background="@color/vermelho"
             android:gravity="left"
-            android:hint="Número"
+            android:hint="Bairro"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -93,7 +108,7 @@
             android:layout_marginTop="8dp"
             android:background="@color/vermelho"
             android:gravity="left"
-            android:hint="Bairro"
+            android:hint="Cidade"
             android:textSize="18sp"
             android:textStyle="bold" />
 
