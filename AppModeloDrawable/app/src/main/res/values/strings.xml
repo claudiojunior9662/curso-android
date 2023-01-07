@@ -14,4 +14,5 @@
     <string name="fragmento_azul">Fragmento Azul</string>
     <string name="meu_perfil">Meu perfil</string>
     <string name="listar_clientes">Listar clientes</string>
+    <string name="listar_clientes_cards">Listar clientes (CARDS)</string>
 </resources>

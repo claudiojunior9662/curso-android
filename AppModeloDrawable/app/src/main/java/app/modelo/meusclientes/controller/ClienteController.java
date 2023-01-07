@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import app.modelo.meusclientes.api.AppUtil;
@@ -56,5 +57,15 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
     @Override
     public List<Cliente> listar() {
         return getAllClientes(ClienteDataModel.TABELA);
+    }
+
+    public List<String> gerarListaClientesListView() {
+        List<String> retorno = new ArrayList<String>();
+
+        for(Cliente cliente : listar()) {
+            retorno.add(cliente.getId() + ", " + cliente.getNome());
+        }
+
+        return retorno;
     }
 }

@@ -25,7 +25,7 @@ import app.modelo.meusclientes.controller.ClienteController;
 import app.modelo.meusclientes.model.Cliente;
 
 
-public class ListarClientesFragment extends Fragment {
+public class ListarClientesCardsFragment extends Fragment {
 
     private static final String TAG = "log";
     View view;
@@ -46,7 +46,7 @@ public class ListarClientesFragment extends Fragment {
 
     Cliente cliente;
 
-    public ListarClientesFragment() {
+    public ListarClientesCardsFragment() {
     }
 
 
@@ -63,7 +63,7 @@ public class ListarClientesFragment extends Fragment {
         view =  inflater.inflate(R.layout.fragment_listar_clientes, container, false);
 
         TextView txtTitulo = view.findViewById(R.id.txtTitulo);
-        txtTitulo.setText(R.string.listar_clientes_fragment);
+        txtTitulo.setText(R.string.listar_clientes_cards);
 
         txtTitulo.setTextColor(ColorStateList.valueOf(Color.WHITE));
 
@@ -82,7 +82,7 @@ public class ListarClientesFragment extends Fragment {
         editPesquisarNome.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence filtro, int i, int i1, int i2) {
-                ListarClientesFragment.this.arrayAdapter.getFilter().filter(filtro);
+                ListarClientesCardsFragment.this.arrayAdapter.getFilter().filter(filtro);
                 Log.i(TAG, "beforeTextChanged: "+filtro);
             }
 
