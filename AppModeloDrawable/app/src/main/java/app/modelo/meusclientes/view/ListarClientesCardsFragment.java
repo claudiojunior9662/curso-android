@@ -65,7 +65,7 @@ public class ListarClientesCardsFragment extends Fragment {
         TextView txtTitulo = view.findViewById(R.id.txtTitulo);
         txtTitulo.setText(R.string.listar_clientes_cards);
 
-        txtTitulo.setTextColor(ColorStateList.valueOf(Color.WHITE));
+//        txtTitulo.setTextColor(ColorStateList.valueOf(Color.BLACK));
 
         clienteController = new ClienteController(getContext());
 
