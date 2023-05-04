@@ -21,10 +21,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List<ClienteORM> listagem = clienteORMController.listar();
-
-        for (ClienteORM cliente: listagem) {
-            Log.i("db_listagem", "cliente listado: " + cliente);
+        for(ClienteORM cliente : clienteORMController.listar()) {
+            Log.d("db_log", "onCreate: " + cliente);
         }
+
+        ClienteORM consulta = clienteORMController.getById(4);
+
+        if(consulta != null)
+            Log.d("db_log", "onCreate: " + consulta);
+        else
+            Log.d("db_log", "onCreate: Não encontrado");
     }
 }

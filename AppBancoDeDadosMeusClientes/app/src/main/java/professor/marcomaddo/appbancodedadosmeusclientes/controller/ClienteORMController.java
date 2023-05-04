@@ -1,5 +1,6 @@
 package professor.marcomaddo.appbancodedadosmeusclientes.controller;
 
+import android.icu.text.DateFormat;
 import android.util.Log;
 
 import java.util.List;
@@ -55,5 +56,18 @@ public class ClienteORMController {
             realm.close();
         }
         return null;
+    }
+
+    public ClienteORM getById(Integer id) {
+        Realm realm = Realm.getDefaultInstance();
+        ClienteORM result = null;
+
+        try {
+            result = realm.copyFromRealm(Objects.requireNonNull(realm.where(ClienteORM.class)).equalTo("id", id).findFirst());
+        } catch (Exception e) {
+            Log.e("db_error", "getById: " + e.getMessage());
+        }
+
+        return result;
     }
 }
